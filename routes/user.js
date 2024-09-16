@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
 // Create a new user
 router.post('/', (req, res) => {
   const newUser = req.body;
-  db.query('INSERT INTO users SET ?', newUser, (err, result) => {
+  db.query('INSERT INTO doctratedata SET ?', newUser, (err, result) => {
     if (err) throw err;
     res.json({ id: result.insertId, ...newUser });
   });
