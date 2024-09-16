@@ -17,6 +17,9 @@ conn.connect(function (err){
     if(err)
         throw err;
     console.log("connect to db successfully")
+    console.log("connect to db successfully")
+    console.log("connect to db successfully")
+
     
 })
 // };
