@@ -5,7 +5,7 @@ const db = require('../config/db');
 
 // Get all users
 router.get('/', (req, res) => {
-  db.query('SELECT * FROM actor', (err, results) => {
+  db.query('SELECT * FROM sys_config', (err, results) => {
     if (err) throw err;
     res.json(results);
   });
