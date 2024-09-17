@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 // Get a single user by ID
-router.get('/:id', (req, res) => {
+router.get('/id', (req, res) => {
   const userId = req.params.id;
   db.query('SELECT * FROM users WHERE id = ?', [userId], (err, result) => {
     if (err) throw err;
@@ -29,9 +29,17 @@ router.post('/', (req, res) => {
   });
 });
 
+router.get('/clients', (req, res) => {
+  const newUser = req.body;
+  db.query('SELECT * FROM doctratedata',(err, result) => {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
 // Update a user
-router.put('/:id', (req, res) => {
-  const userId = req.params.id;
+router.put('/userUpdate', (req, res) => {
+  const userId = req.body.userId;
   const updateUser = req.body;
   db.query('UPDATE users SET ? WHERE id = ?', [updateUser, userId], (err) => {
     if (err) throw err;
